@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+            crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/css/custom/style.css"/>
+
+</head>
+<body>
+<section>
+    <div th:replace="~{layout/header.html :: header}"></div>
+</section>
+<section class="container">
+    <hr>
+    <form action="/bill/thanh-toan" method="post">
+        <button type="submit">Thanh Toan</button>
+        <div class="form-group row">
+            <input class="col-sm-2 col-form-label" name="hoVaTenThanhToan" th:value="${hoVaTenThanhToan}"/>
+            <input class="col-sm-2 col-form-label" name="sdtThanhToan" th:value="${sdtThanhToan}"/>
+            <input class="col-sm-2 col-form-label" name="diaChiThanhToan" th:value="${diaChiThanhToan}"/>
+        </div>
+    </form>
+    <table>
+        <tbody class="table-group-divider">
+        <tr>
+            <td>Ten SP</td>
+            <td>So Luong</td>
+            <td>Don Gia</td>
+            <td>Thanh Tien</td>
+        </tr>
+        <tr th:each="cartModel, index : ${cartModelList}">
+            <td th:text="${index.count}"></td>
+            <td th:text="${cartModel.name}"></td>
+            <td th:text="${cartModel.quantity}"></td>
+            <td th:text="${cartModel.price}"></td>
+            <td th:text="${cartModel.price * cartModel.quantity}"></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<section>
+    <!--    <div th:replace="layout/header.html :: header"></div>-->
+    <div th:replace="~{layout/footer.html :: footer}"></div>
+</section>
+</body>
+</html>

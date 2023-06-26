@@ -1,0 +1,138 @@
+<header xmlns:th="http://www.thymeleaf.org/">
+    <section style="margin-bottom: 5%; margin-top: 3%">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <span th:if="${checkLogin == false}"><a id="logo" th:href="@{/home/hien-thi}">Táo Vàng</a></span>
+                    <span th:if="${checkLogin == true}"><a id="logo"
+                                                           th:href="@{/home/hien-thi-log-in}">Táo Vàng </a></span>
+                </div>
+                <div class="col-5">
+                    <nav class="navbar navbar-expand-lg">
+                        <div class="container-fluid">
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <span class="header-link" th:if="${checkLogin == false}"><a class="nav-link"
+                                                                                                    th:href="@{/home/hien-thi}">Trang Chủ</a></span>
+                                        <span class="header-link" th:if="${checkLogin == true}"><a class="nav-link"
+                                                                                                   th:href="@{/home/hien-thi-log-in}">Trang Chủ </a></span>
+                                    </li>
+<!--                                    <li class="nav-item">-->
+<!--                                        &lt;!&ndash;                                        <a class="nav-link" href="/home/san-pham">Sản Phẩm</a>&ndash;&gt;-->
+<!--                                        <span class="header-link" th:if="${checkLogin == false}"><a class="nav-link"-->
+<!--                                                                                                    th:href="@{/home/san-pham}">Sản Phẩm</a></span>-->
+<!--                                        <span class="header-link" th:if="${checkLogin == true}"><a class="nav-link"-->
+<!--                                                                                                   th:href="@{/home/san-pham-log-in}">Sản Phẩm</a></span>-->
+<!--                                    </li>-->
+                                    <li class="nav-item">
+                                        <!--                                        <a class="nav-link" href="/home/gioi-thieu">Giới Thiệu</a>-->
+                                        <span class="header-link" th:if="${checkLogin == false}"><a class="nav-link"
+                                                                                                    th:href="@{/home/gioi-thieu}">Giới Thiệu</a></span>
+                                        <span class="header-link" th:if="${checkLogin == true}"><a class="nav-link"
+                                                                                                   th:href="@{/home/gioi-thieu-log-in}">Giới Thiệu</a></span>
+                                    </li>
+                                    <li class="nav-item">
+                                        <!--                                        <a class="nav-link" href="/home/su-kien">Sự Kiện</a>-->
+                                        <span class="header-link" th:if="${checkLogin == false}"><a class="nav-link"
+                                                                                                    th:href="@{/home/su-kien}">Sự Kiện</a></span>
+                                        <span class="header-link" th:if="${checkLogin == true}"><a class="nav-link"
+                                                                                                   th:href="@{/home/su-kien-log-in}">Sự Kiện</a></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-5">
+                    <div class="header-icon">
+
+                        <span class="header-link" th:if="${checkLogin == false}"><a th:href="@{/home/view-login}">Đăng nhập </a></span>
+                        <span class="header-link" th:if="${checkLogin == true}"><a
+                                th:href="@{/home/logout}">Đăng xuất </a></span>
+                        <span> | </span>
+                        <span class="header-link">
+<!--                            <a th:href="@{/home/trang-cua-toi}">Trang của tôi </a>-->
+                            <span class="header-link" th:if="${checkLogin == false}"><a
+                                    th:href="@{/home/trang-cua-toi}">Trang của tôi</a></span>
+                            <span class="header-link" th:if="${checkLogin == true}"><a
+                                    th:href="@{/home/trang-cua-toi-log-in}">Trang của tôi</a></span>
+                        </span>
+                        <span> | </span>
+                        <span class="header-link">
+            <button
+                    type="button"
+                    class="btn btn-primary position-relative"
+                    id="giohang"
+            >
+                <span class="header-link" th:if="${checkLogin == false}">
+                    <a th:href="@{/cart/gio-hang}">
+                <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-cart"
+                        viewBox="0 0 16 16"
+                >
+                  <path
+                          d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                  />
+                </svg>
+                <span
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                        th:text="${sumCartItem}"
+                >
+                </span>
+              </a>
+                </span>
+
+                <span class="header-link" th:if="${checkLogin == true}">
+                                <a th:href="@{/cart/gio-hang-log-in}">
+                <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-cart"
+                        viewBox="0 0 16 16"
+                >
+                  <path
+                          d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                  />
+                </svg>
+                <span
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                        th:text="${sumCartItem}"
+                >
+                </span>
+              </a>
+               </span>
+
+<!--                              <a href="/trang-chu/gio-hang">-->
+<!--                                <svg-->
+<!--                                        xmlns="http://www.w3.org/2000/svg"-->
+<!--                                        width="16"-->
+<!--                                        height="16"-->
+<!--                                        fill="currentColor"-->
+<!--                                        class="bi bi-cart"-->
+<!--                                        viewBox="0 0 16 16"-->
+<!--                                >-->
+<!--                                  <path-->
+<!--                                          d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"-->
+<!--                                  />-->
+<!--                                </svg>-->
+<!--                                <span-->
+<!--                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"-->
+<!--                                        th:text="${sumCartItem}"-->
+<!--                                >-->
+<!--                                </span>-->
+<!--                              </a>-->
+            </button>
+          </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>

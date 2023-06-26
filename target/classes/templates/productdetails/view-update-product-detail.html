@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+            crossorigin="anonymous"/>
+</head>
+<body class="container">
+<h3>View Update Product Detail</h3>
+<hr>
+<a th:href="@{/product-detail/hien-thi}" class="btn btn-success">Back</a>
+
+<br/>
+<form th:action="@{/product-detail/add}" th:object="${productDetail}" method="post">
+    <div class="form-group row">
+        <div class="col-sm-6">
+            <input type="text" name="id" th:field="*{id}" hidden/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-6">
+            <label class="col-sm-2 col-form-label">CODE:</label>
+            <input type="text" name="code" th:field="*{code}"/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-6">
+            <label class="col-sm-2 col-form-label">NAME:</label>
+            <input type="text" name="name" th:field="*{name}"/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-6">
+            <label class="col-sm-2 col-form-label">STATUS:</label>
+            <input type="radio" name="status" th:field="*{status}" value="0"/>Con Hang
+            <input type="radio" name="status" th:field="*{status}" value="1"/>Het Hang
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-6">
+            <label class="col-sm-2 col-form-label">NUMBER:</label>
+            <input type="text" name="number" th:field="*{number}"/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-6">
+            <label class="col-sm-2 col-form-label">CATEGORY:</label>
+            <select name="category" aria-label="Default select example">
+                <option th:each="category : ${categorys}"
+                        th:value="${category.id}"
+                        th:text="${category.name}"
+                        th:selected="${category.id == selectedCategory}">
+                </option>
+            </select>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">UPDATE</button>
+
+</form>
+
+</body>
+</html>
